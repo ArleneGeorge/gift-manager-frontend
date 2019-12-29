@@ -1,6 +1,8 @@
 <template>
-<div>
-  <h1> Add Contact</h1>
+<div class='whole-form'>
+  <section class='title'>
+   <h1> Add Contact</h1>
+  </section>
    <div class="friend-form-container">
      
       <form id='new-friend-form' @submit.prevent="addFriend()" >
@@ -16,13 +18,14 @@
         <input  name="zip_code"  placeholder="Zip Code"/>
         <input  name="cell_phone" placeholder="Phone number"/>
         <input type='hidden' name="user_id" :value="this.user.id" >
-        <input id='submit-button' type="submit" value="Add Contact">
+            <input id='submit-button' type="submit" value="Add Contact">
+       <section class='back-button-container'>
+          <a class='add-friend-back-button' @click="$router.go(-1)">Cancel</a>
+        </section>
         </form>
         
-    </div>
-    <!-- <li> <router-link :to="{ name: 'user', params: { username: this.user.username }}" >Close Add Form</router-link></li> -->
-       <a class='back-button' @click="$router.go(-1)">Cancel</a>
-
+    </div >
+    
    </div>
 </template>
 
@@ -90,32 +93,41 @@ export default {
 </script>
 
 <style lang="scss">
+.whole-form{
+  width: 64%;
+  height: 110%;
+  background-image: url('/prezzie-background.jpeg');
+  background-size: 100% 100%;
+  text-align: center;
+  margin-left: 18%;
 
-.friend-form-container{
-   display: flex;
-  max-width: 30rem;
- 
-}
-#new-friend-form{
-    display: inline;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
+  .title{
+    padding-top: 10%;
+  }
+
+  #new-friend-form{
+    margin-left: 2rem;
 
     input {
-    width: 50rem;
-    height: 25px;
-    margin-top: 1rem;
+    width: 80%;
+    height: 5%;
+    margin-top: 0.75rem;
     box-shadow: 1px 2px hsl(0, 0%, 70%);
 }
 #submit {
-  width: 50rem;
+  // width: 50rem;
   height: 25 px;
   margin-top: 1rem;
   text-align: center;
   box-shadow: 1px 2px hsl(0, 0%, 70%);
 }
+.add-friend-back-button{
+  outline: outset;
+  outline-color: white;
+  background-color: white; 
 }
-  
+}
+
+}
 
 </style>

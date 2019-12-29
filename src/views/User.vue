@@ -2,31 +2,28 @@
     <div class='user-page'>
         <header class="userInfo">
             <section class='user-info'>
-        
-        <h1>Hello {{user.first_name}}  {{user.last_name}}</h1>
-        <img :src="user.avatar" :alt="user.first_name"/>
-        <ul id='buttons'>
-        <li><button @click=logout>Logout</button></li>
-        <li><router-link :to="{name: 'add-friend'}">Add New Contact</router-link></li>
 
-        </ul>
-        </section>
-        
+                <h1>Hello {{user.first_name}}  {{user.last_name}}</h1>
+                <img :src="user.avatar" :alt="user.first_name"/>
+            <ul id='buttons'>
+                <li><button @click=logout>Logout</button></li>
+                <li><router-link :to="{name: 'add-friend'}">Add New Contact</router-link></li>
+            </ul>
+            </section>
+
         </header>
-        
 
-
-    <router-view />
-      <section id='contact-text'>
-      <h1> Contacts</h1>
-      </section>
+        <router-view />
+        <section id='contact-text'>
+            <h1> Contacts</h1>
+        </section>
         <ul class='friends'>
-      <li v-for="friend in user.friends" :key="friend.id">
-         <router-link :to="{ name: 'friend-detail', params: { id: friend.id }}" > {{friend.first_name}}  {{friend.last_name}}</router-link>
-        <FriendCard :friend="friend" />
+            <li v-for="friend in user.friends" :key="friend.id">
+            <router-link :to="{ name: 'friend-detail', params: { id: friend.id }}" > {{friend.first_name}}  {{friend.last_name}}</router-link>
+            <FriendCard :friend="friend" />
 
-        
-      </li>
+
+            </li>
         </ul>
     </div>
 </template>
@@ -35,38 +32,38 @@
     import {mapActions} from 'vuex'
     import FriendCard from "@/components/FriendCard"
 
-export default {
+    export default {
 
     components: {
-      FriendCard,
+    FriendCard,
     },
-  
+
 
     methods: {
-        ...mapActions([
-            'logout'
-        ])
+    ...mapActions([
+    'logout'
+    ])
     },
 
- computed: {
-        user(){
-            return this.$store.getters.getUserbyUsername(this.$route.params.username)
-        
-        },
-        friends(){
+    computed: {
+    user(){
+    return this.$store.getters.getUserbyUsername(this.$route.params.username)
 
-      return this.$store.state.friends
-      
+    },
+    friends(){
+
+    return this.$store.state.friends
+
     }, 
     },
-      mounted () {
+    mounted () {
 
     this.$store.dispatch("fetchUsers")
     this.$store.dispatch("fetchFriends")
-    
-    
+
+
     },
-}
+    }
 </script>
 
 <style lang="scss">
@@ -75,16 +72,14 @@ export default {
 }
 .user-page{
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.432);
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
     height: 100%;
 }
 .userInfo{
   display: flex;
-  color: rgb(0,40,255);
+  color: rgb(38,56,118);
   justify-content: center;
   margin-bottom: 2rem;
   
@@ -92,6 +87,7 @@ export default {
 }
 .user-info > img{
     border-radius: .5rem;
+    max-width: 15rem;
 }
 #buttons > li {
     display: inline;
@@ -105,17 +101,17 @@ export default {
 #buttons{
     margin-left: -4.25rem;
     font-size: 20px;
-   color: rgb(0,40,255);
+    color: rgb(38,56,118);
 }
 button {
     border: none;
     background-color: transparent;
     font-family: 'Calistoga', cursive;
     font-size: 20px;
-    color: rgb(0,40,255);
+    color: rgb(38,56,118);
     
 }
 a:visited{
-    color: rgb(0,40,255);
+    color: rgb(38,56,118);
 }
 </style>

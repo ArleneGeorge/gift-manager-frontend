@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import store from '../store'
+// import store from '../store'
 
 import Login from "@/components/Login.vue"
 import ViewAllFriends from "@/views/ViewAllFriends"
@@ -20,12 +20,11 @@ Vue.use(VueRouter)
 
 const routes = [
    
-    //   {
-    //   path: "index",
-    //   name: "index",
-    //   component: Login,
-  
-    // },
+      {
+      path: "/",
+      redirect: '/login',
+     
+    },
       {
       path: "/login",
       name: "login",
@@ -97,7 +96,6 @@ const routes = [
   
 ]
   
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -106,19 +104,21 @@ const router = new VueRouter({
 
 // protected route 
 
-router.beforeEach((to, from, next) => {
-  store.dispatch('fetchToken');
-  if (to.fullPath === '/user/:username') {
-    if (!store.state.token) {
-      next('/login');
-    }
-  }
-  if (to.fullPath === '/login') {
-    if (store.state.token) {
-      next('/user/:username');
-    }
-  }
-  else next();
-})(5)
+
+// router.beforeEach((to, from, next) => {
+//   store.dispatch('fetchToken');
+  
+//   if (to.fullPath === '/login') {
+//     if (!store.state.token) {
+//       next('/login');
+//     }
+//   }
+//   if (to.fullPath === '/login') {
+//     if (store.state.token) {
+//       next('');
+//     }
+//   }
+//   else next();
+// })
 
 export default router

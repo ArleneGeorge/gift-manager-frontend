@@ -2,7 +2,8 @@
  
     <div class='friend-card'>
         <section>
-            <img :src="friend.image_url" :alt="friend.first_name"/>
+
+        <router-link :to="{ name: 'friend-detail', params: { id: friend.id }}" ><img :src="friend.image_url" :alt="friend.first_name"/></router-link>
 
             
         </section>

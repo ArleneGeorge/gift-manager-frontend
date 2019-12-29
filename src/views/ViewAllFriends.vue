@@ -7,7 +7,6 @@
       <router-link :to="{name: 'add-friend'}">Add New Contact</router-link>
         <ul class='friends'>
       <li class='friend-card' v-for="friend in friends" :key="friend.id">
-         <router-link :to="{ name: 'friend-detail', params: { id: friend.id }}" > {{friend.first_name}}  {{friend.last_name}}</router-link>
         <FriendCard :friend="friend" />
       </li>
         </ul>
@@ -69,7 +68,7 @@
   list-style: none;
   margin-bottom: 1rem;
   max-width: 20 rem;
-  box-shadow: 3px 3px hsl(0, 0%, 70%);
+  // box-shadow: 3px 3px hsl(0, 0%, 70%);
   padding: 2rem;
   margin: 1rem;
   // background-color: rgba(255, 255, 255, 0.623);
