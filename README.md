@@ -3,6 +3,8 @@
 
 Gift Manager is a web application that helps you to track your loved ones special occasions and the great gift ideas you have for them.
 
+## [View Web Application](https://prezzie-gift-manager-app.web.app/)
+
 ## Project setup
 ```
 npm install
