@@ -1,5 +1,5 @@
 # gift-manager
-### Designed by Arlene George
+#### Designed by Arlene George
 
 Gift Manager is a web application that helps you to track your loved ones special occasions and the great gift ideas you have for them.
 
@@ -36,6 +36,6 @@ npm run serve
 ![New Gift Idea for Contact](ReadMeImages/Prezzie-contact-add-gift-idea.png)
 
 #### 7. View Contact Landing Page
-![View Contact Landing Page](ReadMeImages/Prezzie-login.png)
+![View Contact Landing Page](ReadMeImages/Prezzie-contact-page.png)
 
 
