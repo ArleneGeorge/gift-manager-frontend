@@ -1,9 +1,11 @@
 <template>
-<div>
-  <h1> Add Occasion</h1>
-   <div class="friend-form-container">
+<div class='whole-occasion-form'>
+  <section class='occasion-title'>
+   <h1> Add Occasion</h1>
+  </section>
+   <div class="occasion-form-container">
      
-      <form id='new-friend-form' @submit.prevent="addOccasion()" >
+      <form id='new-occasion-form' @submit.prevent="addOccasion()" >
         <input  name="occasion"  placeholder="Occasion Name"/>
         <input  name="month"  placeholder="Month"/>
         <input  name="day"  placeholder="Day"/>
@@ -11,11 +13,13 @@
         <!-- <input  name="reminder_time" placeholder="How many days before would you like to be reminded"/> -->
         <input type="hidden" name="friend_id" :value="friend.id" >
         <input id='submit-button' type="submit" value="Add Date">
-        </form>
+      </form>
       
     </div>
-    
-        <a class='back-button' @click="$router.go(-1)">Go Back</a>
+        <section class='occasion-back-button-container'>
+          <button class='occasion-back-button'><a @click="$router.go(-1)">Cancel</a></button>
+        </section>
+
 
   
    </div>
@@ -74,34 +78,54 @@ export default {
 </script>
 
 <style lang="scss">
-.back-button{
-  background-color: white;
+.whole-occasion-form{
+  width: 64%;
+  height: 30rem;
+  background-image: url('/prezzie-background.jpeg');
+  background-size: 100% 100%;
+  text-align: center;
+  margin-left: 18%;
+  margin-top: 3rem;
+ 
 
-}
-.friend-form-container{
+.occasion-form-container{
    display: flex;
-  max-width: 30rem;
+  max-width: 10rem;
 }
-#new-friend-form{
-    display: inline;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
+.occasion-title{
+  padding-top: 5%;
+}
+#new-occasion-form{
+    margin-left: 22rem;
 
     input {
-    width: 50rem;
-    height: 25px;
-    margin-top: 1rem;
+    width: 220%;
+    height: 10%;
+    margin-top: 0.75rem;
     box-shadow: 1px 2px hsl(0, 0%, 70%);
 }
-#submit {
-  width: 50rem;
-  height: 25 px;
-  margin-top: 1rem;
-  text-align: center;
-  box-shadow: 1px 2px hsl(0, 0%, 70%);
+    #submit {
+      height: 60 px;
+      margin-top: 1rem;
+      text-align: center;
+      box-shadow: 1px 2px hsl(0, 0%, 70%);
+    }
+
 }
+
 }
+button > a {
+  display: inline-flex;
+  width: 8rem;
+  outline: outset;
+  outline-color: white;
+  background-color: white;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-left: -2rem;
+}
+
+
   
    
 

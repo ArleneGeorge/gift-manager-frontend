@@ -1,6 +1,8 @@
 <template>
-<div>
+<div class='all-new-gift-form'>
+  <section class='add-gift-title'>
   <h2> Add Gift</h2>
+  </section>
 
    <div class="gift-form-container">
      
@@ -16,7 +18,7 @@
         </form>
     
    </div>
-        <a class='back-button' @click="$router.go(-1)">Go Back</a>
+       <button class='gift-back-button'> <a class='back-button' @click="$router.go(-1)">Cancel</a> </button>
 
    </div>
 </template>
@@ -71,36 +73,54 @@ export default {
 </script>
 
 <style lang="scss">
-.back-button{
-  background-color: white;
 
+.all-new-gift-form{
+  width: 64%;
+  height: 30rem;
+  background-image: url('/prezzie-background.jpeg');
+  background-size: 100% 100%;
+  text-align: center;
+  margin-left: 18%;
+  margin-top: 3rem;
+
+}
+.add-gift-title{
+  padding-top: 5%;
 }
 .gift-form-container{
   display: flex;
-  max-width: 30rem;
+  max-width: 10rem;
   
 }
 
 #new-gift-form{
-    display: inline;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 22rem;
     
 
     input {
-    width: 50rem;
-    height: 25px;
+    width: 220%;
+    height: 10%;
+    margin-top: 0.75rem;
     box-shadow: 1px 2px hsl(0, 0%, 70%);
-    margin: 1em;
-    margin-bottom: 1rem;
 }
 
 #submit {
-  width: 25rem;
-  margin-top: 2rem;
- text-align: center;
+  height: 60 px;
+      margin-top: 1rem;
+      text-align: center;
+      box-shadow: 1px 2px hsl(0, 0%, 70%);
 }
-   
+}
+
+.gift-back-button > a {
+  display: inline-flex;
+  width: 8rem;
+  outline: outset;
+  outline-color: white;
+  background-color: white;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-left: -2rem;
 }
  
 
